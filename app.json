@@ -1,0 +1,12 @@
+{
+  "name": "test-app-yay",
+  "displayName": "test-app-yay",
+  "expo": {
+    "name": "test-app-yay",
+    "slug": "test-app-yay",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
