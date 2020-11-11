@@ -5,18 +5,6 @@ import { View, Text, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen Commit Of Shame</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate("Details")}
-      />
-    </View>
-  );
-}
-
 const Stack = createStackNavigator();
 
 function App() {
@@ -26,22 +14,34 @@ function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: "Overview" }}
+          options={{ title: "Quit Counter" }}
         />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen
+          name="Reset"
+          component={ResetDate}
+          options={{ title: "Reset Date" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-function DetailsScreen({ navigation }) {
+function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Details Screen</Text>
+      <Text>Quit Counter</Text>
       <Button
-        title="Go to Details... again"
-        onPress={() => navigation.navigate("Details")}
+        title="Reset Counter"
+        onPress={() => navigation.navigate("Reset")}
       />
+    </View>
+  );
+}
+
+function ResetDate() {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>Reset Date</Text>
     </View>
   );
 }
