@@ -1,7 +1,7 @@
 // In App.js in a new project
 
 import * as React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -49,25 +49,33 @@ function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Quit Counter</Text>
+      <Image
+        source={require("./assets/clock.gif")}
+        style={{ width: 120, height: 120 }}
+      />
       <Button
         title="Random Number"
         onPress={() => {
           let ranNumb = Math.random();
-          console.log(ranNumb);
-
           storeData(ranNumb);
         }}
       />
       <Button
         title="Read Data"
         onPress={() => {
-          console.log("read data");
           getData();
         }}
       />
       <Button
         title="Reset Counter"
         onPress={() => navigation.navigate("Reset")}
+      />
+      <Button
+        title="Get Date"
+        onPress={() => {
+          let currentDate = new Date();
+          console.log(currentDate);
+        }}
       />
     </View>
   );
